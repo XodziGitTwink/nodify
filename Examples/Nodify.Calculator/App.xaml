@@ -7,6 +7,9 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/Nodify;component/Themes/Dark.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/Nodify.Shared;component/Themes/Icons.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Nodify.Shared;component/Themes/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Nodify.Shared;component/Themes/Generic.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Nodify.Shared;component/Themes/Brushes.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/Nodify.Shared;component/Themes/Dark.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

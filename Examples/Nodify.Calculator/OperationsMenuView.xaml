@@ -21,7 +21,7 @@
     <Border Padding="7"
             CornerRadius="3"
             Background="{DynamicResource Node.BackgroundBrush}"
-            BorderBrush="{StaticResource NodifyEditor.SelectionRectangleStrokeBrush}"
+            BorderBrush="Blue"
             BorderThickness="2"
             Visibility="{Binding IsVisible, Converter={shared:BooleanToVisibilityConverter}}">
         <Grid>

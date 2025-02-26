@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net9-windows;net8-windows;net6-windows;net5-windows;netcoreapp3.1;net48;net472</TargetFrameworks>
+    <TargetFrameworks>net9-windows;net8-windows</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -10,10 +10,12 @@
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Nodify" Version="7.0.1" />
     <PackageReference Include="StringMath" Version="4.1.2" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\SkyUtils\SkyUtils.csproj" />
     <ProjectReference Include="..\..\Nodify\Nodify.csproj" />
     <ProjectReference Include="..\Nodify.Shared\Nodify.Shared.csproj" />
   </ItemGroup>

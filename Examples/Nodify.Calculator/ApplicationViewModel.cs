@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SkyUtils;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
 
@@ -8,12 +10,9 @@ namespace Nodify.Calculator
     {
         public NodifyObservableCollection<EditorViewModel> Editors { get; } = new NodifyObservableCollection<EditorViewModel>();
 
-        public ApplicationViewModel()
+        public ApplicationViewModel(List<Command> commands)
         {
-            AddEditorCommand = new DelegateCommand(() => Editors.Add(new EditorViewModel
-            {
-                Name = $"Editor {Editors.Count + 1}"
-            }));
+            AddEditorCommand = new DelegateCommand(() => Editors.Add(new EditorViewModel(commands)));
             CloseEditorCommand = new DelegateCommand<Guid>(
                 id => Editors.RemoveOne(editor => editor.Id == id),
                 _ => Editors.Count > 0 && SelectedEditor != null);
@@ -31,10 +30,7 @@ namespace Nodify.Calculator
                 var childEditors = Editors.Where(ed => ed.Parent == editor).ToList();
                 childEditors.ForEach(ed => Editors.Remove(ed));
             });
-            Editors.Add(new EditorViewModel
-            {
-                Name = $"Editor {Editors.Count + 1}"
-            });
+            Editors.Add(new EditorViewModel(commands));
         }
 
         private void OnOpenInnerCalculator(EditorViewModel parentEditor, CalculatorViewModel calculator)
@@ -46,7 +42,7 @@ namespace Nodify.Calculator
             }
             else
             {
-                var childEditor = new EditorViewModel
+                var childEditor = new EditorViewModel()
                 {
                     Parent = parentEditor,
                     Calculator = calculator,

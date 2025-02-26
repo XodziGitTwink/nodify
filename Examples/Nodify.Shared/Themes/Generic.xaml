@@ -9,6 +9,8 @@
 
     <local:ResizeDirectionToVisiblityConverter x:Key="ResizeDirectionToVisiblityConverter" />
 
+    <SolidColorBrush x:Key="SelectionRectangleStrokeBrush" Color="Blue"/>
+
     <Style x:Key="EditableTextBlockBaseStyle"
            TargetType="{x:Type local:EditableTextBlock}">
         <Setter Property="Background"
@@ -109,7 +111,7 @@
                                     </Grid.ColumnDefinitions>
                                     <StackPanel Orientation="Horizontal"
                                                 IsItemsHost="True" />
-                                    <Button Style="{StaticResource IconButton}"
+                                    <Button
                                             Command="{TemplateBinding AddTabCommand}"
                                             Height="34"
                                             VerticalAlignment="Bottom"
@@ -190,7 +192,7 @@
                                         Margin="5 0 0 0"
                                         Background="{DynamicResource HighlightedBackgroundBrush}"
                                         BorderBrush="{DynamicResource BackgroundBrush}"
-                                        Style="{StaticResource IconButton}"
+                                        
                                         ToolTip="Close Tab">
                                     <Path Width="16"
                                           Height="8"

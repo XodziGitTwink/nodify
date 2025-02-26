@@ -133,7 +133,7 @@
                              PendingConnection="{Binding PendingConnection}"
                              PendingConnectionTemplate="{StaticResource PendingConnectionTemplate}"
                              ConnectionTemplate="{StaticResource ConnectionTemplate}"
-                             Background="{StaticResource SmallGridLinesDrawingBrush}"
+                             Background="DimGray"
                              ItemContainerStyle="{StaticResource ItemContainerStyle}"
                              HasCustomContextMenu="True"
                              GridCellSize="15"
@@ -276,11 +276,11 @@
                         <nodify:Node.ContentTemplate>
                             <DataTemplate DataType="{x:Type local:ExpandoOperationViewModel}">
                                 <StackPanel>
-                                    <Button Style="{StaticResource IconButton}"
-                                            Content="{StaticResource PlusIcon}"
+                                    <Button 
+                                            Content="+"
                                             Command="{Binding AddInputCommand}" />
-                                    <Button Style="{StaticResource IconButton}"
-                                            Content="{StaticResource RemoveKeyIcon}"
+                                    <Button 
+                                            Content="-"
                                             Command="{Binding RemoveInputCommand}" />
                                 </StackPanel>
                             </DataTemplate>
@@ -342,11 +342,11 @@
                     <nodify:Node Header="{Binding Title}"
                                  Output="{Binding Output}">
                         <StackPanel>
-                            <Button Style="{StaticResource IconButton}"
-                                    Content="{StaticResource PlusIcon}"
+                            <Button 
+                                    Content="+"
                                     Command="{Binding AddOutputCommand}" />
-                            <Button Style="{StaticResource IconButton}"
-                                    Content="{StaticResource RemoveKeyIcon}"
+                            <Button 
+                                    Content="-"
                                     Command="{Binding RemoveOutputCommand}" />
                         </StackPanel>
                     </nodify:Node>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SkyUtils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -46,28 +47,38 @@ namespace Nodify.Calculator
         public INodifyCommand CreateOperationCommand { get; }
         private readonly CalculatorViewModel _calculator;
 
-        public OperationsMenuViewModel(CalculatorViewModel calculator)
+        public OperationsMenuViewModel(CalculatorViewModel calculator, List<Command> commands)
         {
             _calculator = calculator;
             List<OperationInfoViewModel> operations = new List<OperationInfoViewModel>
             {
                 new OperationInfoViewModel
                 {
-                    Type = OperationType.Graph,
-                    Title = "Operation Graph",
+                    Type = OperationType.Expando,
+                    MaxInput = 2,
+                    Title = "Команда",
                 },
                 new OperationInfoViewModel
                 {
-                    Type = OperationType.Calculator,
-                    Title = "Calculator"
+                    CommandType = CommandType.ScreenShot,
+                    MaxInput = 2,
+                    Title = "Скриншот",
                 },
-                new OperationInfoViewModel
-                {
-                    Type = OperationType.Expression,
-                    Title = "Custom",
-                }
             };
-            operations.AddRange(OperationFactory.GetOperationsInfo(typeof(OperationsContainer)));
+            foreach (var com in commands)
+            {
+                operations.Add(new OperationInfoViewModel
+                {
+                    Type = OperationType.Expando,
+                    MaxInput = 2,
+                    Title = com.Name,
+                });
+            }
+            foreach (CommandType type in Enum.GetValues(typeof(CommandType)))
+            {
+                
+            }
+            //operations.AddRange(OperationFactory.GetOperationsInfo(typeof(OperationsContainer)));
 
             AvailableOperations = new NodifyObservableCollection<OperationInfoViewModel>(operations);
             CreateOperationCommand = new DelegateCommand<OperationInfoViewModel>(CreateOperation);

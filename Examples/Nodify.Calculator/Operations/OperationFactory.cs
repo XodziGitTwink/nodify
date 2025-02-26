@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nodify.Calculator.Commands;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -99,6 +100,16 @@ namespace Nodify.Calculator
                 Title = i
             });
 
+            switch (info.CommandType)
+            {
+                case CommandType.ScreenShot:
+                    return new ScreenShotCommandViewModel
+                    {
+                        Title = info.Title,
+                        Operation = info.Operation 
+                    };
+            }
+
             switch (info.Type)
             {
                 case OperationType.Expression:
@@ -107,7 +118,7 @@ namespace Nodify.Calculator
                         Title = info.Title,
                         Output = new ConnectorViewModel(),
                         Operation = info.Operation,
-                        Expression = "1 + sin {a} + cos {b}"
+                        Expression = "{a} {b} {c}"
                     };
 
                 case OperationType.Calculator:

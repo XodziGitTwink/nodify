@@ -9,7 +9,16 @@ namespace Nodify.Calculator
         Expression,
         Calculator,
         Group,
-        Graph
+        Graph,
+    }
+    public enum CommandType
+    {
+        ButtonPress,
+        HideWindow,
+        MouseMove,
+        OpenSite,
+        OpenApp,
+        ScreenShot,
     }
 
     public class OperationInfoViewModel
@@ -17,6 +26,7 @@ namespace Nodify.Calculator
         public string? Title { get; set; }
         public OperationType Type { get; set; }
         public IOperation? Operation { get; set; }
+        public CommandType CommandType { get; set; }
         public List<string?> Input { get; } = new List<string?>();
         public uint MinInput { get; set; }
         public uint MaxInput { get; set; }

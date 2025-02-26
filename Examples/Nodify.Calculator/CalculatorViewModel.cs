@@ -1,11 +1,14 @@
-﻿using System.Linq;
+﻿using SkyUtils;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
+using System.Windows.Documents;
 
 namespace Nodify.Calculator
 {
     public class CalculatorViewModel : ObservableObject
     {
-        public CalculatorViewModel()
+        public CalculatorViewModel(List<Command> commands = null)
         {
             CreateConnectionCommand = new DelegateCommand<ConnectorViewModel>(
                 _ => CreateConnection(PendingConnection.Source, PendingConnection.Target),
@@ -70,7 +73,7 @@ namespace Nodify.Calculator
                 }
             });
 
-            OperationsMenu = new OperationsMenuViewModel(this);
+            OperationsMenu = new OperationsMenuViewModel(this,commands);
         }
 
         private NodifyObservableCollection<OperationViewModel> _operations = new NodifyObservableCollection<OperationViewModel>();

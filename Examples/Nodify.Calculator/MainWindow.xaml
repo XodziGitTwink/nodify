@@ -11,10 +11,7 @@
         Title="MainWindow"
         Height="650"
         Width="1200">
-    <Window.DataContext>
-        <local:ApplicationViewModel />
-    </Window.DataContext>
-    
+
     <Window.InputBindings>
         <KeyBinding Key="T"
                     Modifiers="Ctrl"
@@ -36,7 +33,7 @@
             <local:EditorView/>
         </DataTemplate>
     </Window.Resources>
-    
+
     <Grid>
         <shared:TabControlEx ItemsSource="{Binding Editors}"
                              SelectedItem="{Binding SelectedEditor}" 
@@ -77,19 +74,20 @@
                                         Value="0 0 0 5" />
                             </Style>
                         </StackPanel.Resources>
+                        
 
                         <StackPanel Margin="0 0 0 20">
-                            <TextBlock Text="(New) Drag and drop nodes from the toolbox"
+                            <TextBlock Text="Короче тут инструкция что вообще делать"
                                    TextWrapping="Wrap"
                                    Foreground="{DynamicResource NodeInput.BorderBrush}"
                                    FontWeight="Bold"/>
                         </StackPanel>
-                        <TextBlock TextWrapping="Wrap">
+                        <!--<TextBlock TextWrapping="Wrap">
                             <Run Foreground="Red"
                                     FontWeight="Bold">CTRL + N/W</Run>
                             <Run>: open/close editor</Run>
-                        </TextBlock>
-                        <TextBlock TextWrapping="Wrap">
+                        </TextBlock>-->
+                        <!--<TextBlock TextWrapping="Wrap">
                             <Run Foreground="Red"
                                     FontWeight="Bold">ALT + Click</Run>
                             <Run>: disconnect connector</Run>
@@ -125,10 +123,11 @@
                                    FontWeight="Bold" />
                         <TextBlock Text="Create an Operation Graph and add operations to it"
                                    TextWrapping="Wrap"
-                                   FontWeight="Bold" />
+                                   FontWeight="Bold" />-->
                     </StackPanel>
                 </ScrollViewer>
             </Border>
         </Expander>
+        <Button x:Name="Save" Content="Сохранить" Margin="1107,585,10,10" Click="Save_Click"/>
     </Grid>
 </Window>

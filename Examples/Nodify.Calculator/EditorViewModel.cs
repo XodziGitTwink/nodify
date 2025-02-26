@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SkyUtils;
+using System;
 using System.Collections.Generic;
 using System.Windows.Input;
 
@@ -10,9 +11,9 @@ namespace Nodify.Calculator
 
         public EditorViewModel? Parent { get; set; }
 
-        public EditorViewModel()
+        public EditorViewModel(List<Command>? commands = null)
         {
-            Calculator = new CalculatorViewModel();
+            Calculator = new CalculatorViewModel(commands);
             OpenCalculatorCommand = new DelegateCommand<CalculatorViewModel>(calculator =>
             {
                 OnOpenInnerCalculator?.Invoke(this, calculator);
