@@ -30,5 +30,6 @@ namespace Nodify.Calculator
         public List<string?> Input { get; } = new List<string?>();
         public uint MinInput { get; set; }
         public uint MaxInput { get; set; }
+        public string? Description { get; set; }
     }
 }

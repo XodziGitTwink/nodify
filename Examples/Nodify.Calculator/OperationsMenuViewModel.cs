@@ -50,7 +50,10 @@ namespace Nodify.Calculator
         public OperationsMenuViewModel(CalculatorViewModel calculator, List<Command> commands)
         {
             _calculator = calculator;
-            List<OperationInfoViewModel> operations = new List<OperationInfoViewModel>
+            List<OperationInfoViewModel> operations = new List<OperationInfoViewModel>();
+            if (commands == null || commands.Count == 0)
+            {
+                operations = new List<OperationInfoViewModel>
             {
                 new OperationInfoViewModel
                 {
@@ -64,19 +67,33 @@ namespace Nodify.Calculator
                     MaxInput = 2,
                     Title = "Скриншот",
                 },
-            };
-            foreach (var com in commands)
-            {
-                operations.Add(new OperationInfoViewModel
+                new OperationInfoViewModel
                 {
-                    Type = OperationType.Expando,
+                    CommandType = CommandType.HideWindow,
                     MaxInput = 2,
-                    Title = com.Name,
-                });
+                    Title = "Свернуть окно"
+                },
+                new OperationInfoViewModel
+                {
+                    CommandType = CommandType.OpenApp,
+                    MaxInput = 2,
+                    Title = "Открыть",
+                    Description = "Тут нужный exe"
+                }
+            };
             }
-            foreach (CommandType type in Enum.GetValues(typeof(CommandType)))
+            else
             {
-                
+                operations = new List<OperationInfoViewModel>();
+                foreach (var com in commands)
+                {
+                    operations.Add(new OperationInfoViewModel
+                    {
+                        Type = OperationType.Expando,
+                        MaxInput = 2,
+                        Title = com.Name,
+                    });
+                }
             }
             //operations.AddRange(OperationFactory.GetOperationsInfo(typeof(OperationsContainer)));
 

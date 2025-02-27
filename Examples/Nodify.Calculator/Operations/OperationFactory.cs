@@ -1,6 +1,7 @@
 ﻿using Nodify.Calculator.Commands;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
@@ -107,6 +108,19 @@ namespace Nodify.Calculator
                     {
                         Title = info.Title,
                         Operation = info.Operation 
+                    };
+                case CommandType.HideWindow:
+                    return new HideWindiwViewModel
+                    {
+                        Title = info.Title,
+                        Operation = info.Operation
+                    };
+                case CommandType.OpenApp:
+                    return new OpenAppCommandViewModel
+                    {
+                        Title = info.Title,
+                        Operation = info.Operation,
+                        Description = info.Description 
                     };
             }
 

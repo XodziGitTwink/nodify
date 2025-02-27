@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Nodify.Calculator"
+             xmlns:commands="clr-namespace:Nodify.Calculator.Commands"
              xmlns:nodify="https://miroiu.github.io/nodify"
              xmlns:shared="clr-namespace:Nodify;assembly=Nodify.Shared"
              xmlns:sys="clr-namespace:System;assembly=System.Runtime"
@@ -297,6 +298,20 @@
                                 <TextBox Text="{Binding Expression}"
                                          MinWidth="100"
                                          Margin="5 0 0 0" />
+                            </DataTemplate>
+                        </nodify:Node.ContentTemplate>
+                    </nodify:Node>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type commands:OpenAppCommandViewModel}">
+                    <nodify:Node Content="{Binding}"
+                 Input="{Binding Input}"
+                 Output="{Binding Output, Converter={StaticResource ItemToListConverter}}">
+                        <nodify:Node.ContentTemplate>
+                            <DataTemplate DataType="{x:Type local:ExpressionOperationViewModel}">
+                                <TextBox Text="{Binding Description}"
+                         MinWidth="100"
+                         Margin="5 0 0 0" />
                             </DataTemplate>
                         </nodify:Node.ContentTemplate>
                     </nodify:Node>
