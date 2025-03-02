@@ -101,7 +101,7 @@
                               Margin="2,2,2,0"
                               Background="{TemplateBinding Background}"
                               KeyboardNavigation.TabIndex="1">
-                            <ScrollViewer x:Name="PART_ScrollViewer"
+                            <!--<ScrollViewer x:Name="PART_ScrollViewer"
                                           HorizontalScrollBarVisibility="Auto"
                                           VerticalScrollBarVisibility="Auto">
                                 <Grid>
@@ -125,7 +125,7 @@
                                               Stretch="Uniform" />
                                     </Button>
                                 </Grid>
-                            </ScrollViewer>
+                            </ScrollViewer>-->
                         </Grid>
                         <Border x:Name="ContentPanel"
                                 Background="{TemplateBinding Background}"

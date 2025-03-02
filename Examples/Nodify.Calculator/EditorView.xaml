@@ -134,7 +134,7 @@
                              PendingConnection="{Binding PendingConnection}"
                              PendingConnectionTemplate="{StaticResource PendingConnectionTemplate}"
                              ConnectionTemplate="{StaticResource ConnectionTemplate}"
-                             Background="DimGray"
+                             Background="#44444c"
                              ItemContainerStyle="{StaticResource ItemContainerStyle}"
                              HasCustomContextMenu="True"
                              GridCellSize="15"
@@ -309,9 +309,24 @@
                  Output="{Binding Output, Converter={StaticResource ItemToListConverter}}">
                         <nodify:Node.ContentTemplate>
                             <DataTemplate DataType="{x:Type local:ExpressionOperationViewModel}">
-                                <TextBox Text="{Binding Description}"
-                         MinWidth="100"
-                         Margin="5 0 0 0" />
+                                <StackPanel>
+                                    <!--<TextBox Text="{Binding Description}"
+                                     MinWidth="100"
+                                     Margin="5 0 0 0" />-->
+                                    <ComboBox ItemsSource="{Binding Programms}"
+                                          SelectedItem="{Binding SelectedProgram, Mode=TwoWay}"
+                                          MinWidth="200"
+                                          Margin="5 0 0 0">
+                                        <ComboBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Image Source="{Binding DisplayIcon}" Width="16" Height="16" Margin="0 0 5 0"/>
+                                                    <TextBlock Text="{Binding Name}"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ComboBox.ItemTemplate>
+                                    </ComboBox>
+                                </StackPanel>
                             </DataTemplate>
                         </nodify:Node.ContentTemplate>
                     </nodify:Node>
@@ -404,48 +419,52 @@
         <Grid Background="{StaticResource LargeGridLinesDrawingBrush}"
               Panel.ZIndex="-2" />
 
-        <Border HorizontalAlignment="Right"
-                MinWidth="200"
-                MaxWidth="300"
-                Padding="7"
-                Margin="10"
-                CornerRadius="3"
-                BorderThickness="2">
-            <Border.Background>
-                <SolidColorBrush Color="{DynamicResource BackgroundColor}"
-                                 Opacity="0.7" />
-            </Border.Background>
-            <ScrollViewer>
-                <ItemsControl ItemsSource="{Binding Calculator.OperationsMenu.AvailableOperations}">
-                    <ItemsControl.ItemContainerStyle>
-                        <Style>
-                            <Setter Property="FrameworkElement.Margin"
-                                    Value="5" />
-                            <Setter Property="FrameworkElement.HorizontalAlignment"
-                                    Value="Left" />
-                            <Setter Property="FrameworkElement.Cursor"
-                                    Value="Hand" />
-                            <Setter Property="FrameworkElement.ToolTip"
-                                    Value="Drag and drop into the editor" />
-                        </Style>
-                    </ItemsControl.ItemContainerStyle>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate DataType="{x:Type local:OperationViewModel}">
-                            <nodify:Node Content="{Binding Title}"
-                                         Input="{Binding Input}"
-                                         BorderBrush="{StaticResource AnimatedBrush}"
-                                         BorderThickness="2"
-                                         MouseMove="OnNodeDrag">
-                                <nodify:Node.Output>
-                                    <CompositeCollection>
-                                        <sys:String>Output</sys:String>
-                                    </CompositeCollection>
-                                </nodify:Node.Output>
-                            </nodify:Node>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </ScrollViewer>
+        <Border BorderBrush="Black"
+        BorderThickness="3"
+        Padding="2">
+            <Border HorizontalAlignment="Right"
+            MinWidth="200"
+            MaxWidth="300"
+            Padding="7"
+            Margin="10"
+            CornerRadius="3"
+            BorderThickness="2">
+                <Border.Background>
+                    <SolidColorBrush Color="#37373f"
+                             Opacity="0.7" />
+                </Border.Background>
+                <ScrollViewer>
+                    <ItemsControl ItemsSource="{Binding Calculator.OperationsMenu.AvailableOperations}">
+                        <ItemsControl.ItemContainerStyle>
+                            <Style>
+                                <Setter Property="FrameworkElement.Margin"
+                                Value="5" />
+                                <Setter Property="FrameworkElement.HorizontalAlignment"
+                                Value="Left" />
+                                <Setter Property="FrameworkElement.Cursor"
+                                Value="Hand" />
+                                <Setter Property="FrameworkElement.ToolTip"
+                                Value="Drag and drop into the editor" />
+                            </Style>
+                        </ItemsControl.ItemContainerStyle>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate DataType="{x:Type local:OperationViewModel}">
+                                <nodify:Node Content="{Binding Title}"
+                                     Input="{Binding Input}"
+                                     BorderBrush="{StaticResource AnimatedBrush}"
+                                     BorderThickness="2"
+                                     MouseMove="OnNodeDrag">
+                                    <nodify:Node.Output>
+                                        <CompositeCollection>
+                                            <sys:String>Output</sys:String>
+                                        </CompositeCollection>
+                                    </nodify:Node.Output>
+                                </nodify:Node>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Border>
         </Border>
     </Grid>
 </UserControl>
