@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using SkyUtils;
+using System.Collections.Generic;
 
 namespace Nodify.Calculator
 {
@@ -25,7 +26,7 @@ namespace Nodify.Calculator
     {
         public string? Title { get; set; }
         public OperationType Type { get; set; }
-        public IOperation? Operation { get; set; }
+        public ICommandAction? Operation { get; set; }
         public CommandType CommandType { get; set; }
         public List<string?> Input { get; } = new List<string?>();
         public uint MinInput { get; set; }

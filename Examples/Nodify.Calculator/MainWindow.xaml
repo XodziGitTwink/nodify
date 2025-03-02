@@ -29,9 +29,9 @@
         <shared:BindingProxy x:Key="Proxy" 
                              DataContext="{Binding}"/>
         
-        <DataTemplate DataType="{x:Type local:EditorViewModel}">
+        <!--<DataTemplate DataType="{x:Type local:EditorViewModel}">
             <local:EditorView/>
-        </DataTemplate>
+        </DataTemplate>-->
     </Window.Resources>
 
     <Grid>

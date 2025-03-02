@@ -12,8 +12,8 @@ namespace Nodify.Calculator.Commands
         public string Description {  get; set; }
         public List<InstalledProgram> Programms { get; set; }
 
-        private InstalledProgramsSearcher _selectedProgram;
-        public InstalledProgramsSearcher SelectedProgram
+        private InstalledProgram _selectedProgram;
+        public InstalledProgram SelectedProgram
         {
             get => _selectedProgram;
             set
@@ -27,12 +27,7 @@ namespace Nodify.Calculator.Commands
             Input.Add(new ConnectorViewModel());
             var result = InstalledProgramsSearcher.GetAllInstalledPrograms();
             var filtered = InstalledProgramsSearcher.GetFilteredPrograms(result, new List<string> { ".NET", "SDK", "Toolkit", "Development", "SQL", "X32", "X64", "X86", "Tools", "Tool", "Support", "Drive" });
-            Programms = filtered.Select(p => new InstalledProgram
-            {
-                Name = p.DisplayName,
-                ExecutablePath = p.DisplayIcon
-            }).ToList();
-
+            Programms = InstalledProgramsSearcher.LoadInstalledProgramsFromJson("installedPrograms.json");
         }
     }
 }

@@ -43,12 +43,12 @@ namespace Nodify.Calculator
                 .WhenRemoved(x => Input.RemoveOne(i => i.Title == x.Title));
         }
 
-        protected override void OnInputValueChanged()
-        {
-            for (var i = 0; i < Input.Count; i++)
-            {
-                InnerInput.Output[i].Value = Input[i].Value;
-            }
-        }
+        //protected override void OnInputValueChanged()
+        //{
+        //    for (var i = 0; i < Input.Count; i++)
+        //    {
+        //        InnerInput.Output[i].Value = Input[i].Value;
+        //    }
+        //}
     }
 }

@@ -35,7 +35,7 @@ namespace Nodify.Calculator
                         var delType = typeof(Func<double, double, double>);
                         var del = (Func<double, double, double>)Delegate.CreateDelegate(delType, method);
 
-                        op.Operation = new BinaryOperation(del);
+                        //op.Operation = new BinaryOperation(del);
                     }
                     else if (para.Length == 1)
                     {
@@ -46,7 +46,7 @@ namespace Nodify.Calculator
                             var delType = typeof(Func<double[], double>);
                             var del = (Func<double[], double>)Delegate.CreateDelegate(delType, method);
 
-                            op.Operation = new ParamsOperation(del);
+                            //op.Operation = new ParamsOperation(del);
                             op.MaxInput = int.MaxValue;
                         }
                         else
@@ -54,7 +54,7 @@ namespace Nodify.Calculator
                             var delType = typeof(Func<double, double>);
                             var del = (Func<double, double>)Delegate.CreateDelegate(delType, method);
 
-                            op.Operation = new UnaryOperation(del);
+                            //op.Operation = new UnaryOperation(del);
                         }
                     }
                     else if (para.Length == 0)
@@ -62,7 +62,7 @@ namespace Nodify.Calculator
                         var delType = typeof(Func<double>);
                         var del = (Func<double>)Delegate.CreateDelegate(delType, method);
 
-                        op.Operation = new ValueOperation(del);
+                        //op.Operation = new ValueOperation(del);
                     }
 
                     if (attr != null)

@@ -66,6 +66,7 @@ namespace Nodify.Calculator
                     CommandType = CommandType.ScreenShot,
                     MaxInput = 2,
                     Title = "Скриншот",
+                    //Operation = new ScrennShotCommand(),
                 },
                 new OperationInfoViewModel
                 {
@@ -79,7 +80,7 @@ namespace Nodify.Calculator
                     MaxInput = 2,
                     Title = "Открыть",
                     Description = "Тут нужный exe"
-                }
+                },
             };
             }
             else

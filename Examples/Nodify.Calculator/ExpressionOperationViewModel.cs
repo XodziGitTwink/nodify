@@ -32,7 +32,7 @@ namespace Nodify.Calculator
                     });
                 }
 
-                OnInputValueChanged();
+                //OnInputValueChanged();
             }
             catch
             {
@@ -40,20 +40,20 @@ namespace Nodify.Calculator
             }
         }
 
-        protected override void OnInputValueChanged()
-        {
-            if (Output != null && _expr != null)
-            {
-                try
-                {
-                    Input.ForEach(i => _expr.Substitute(i.Title!, i.Value));
-                    Output.Value = _expr.Result;
-                }
-                catch
-                {
+        //protected override void OnInputValueChanged()
+        //{
+        //    if (Output != null && _expr != null)
+        //    {
+        //        try
+        //        {
+        //            Input.ForEach(i => _expr.Substitute(i.Title!, i.Value));
+        //            Output.Value = _expr.Result;
+        //        }
+        //        catch
+        //        {
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
     }
 }

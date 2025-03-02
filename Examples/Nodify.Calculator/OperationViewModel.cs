@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using SkyUtils;
+using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Windows;
 
@@ -24,7 +26,7 @@ namespace Nodify.Calculator
         {
             if (e.PropertyName == nameof(ConnectorViewModel.Value))
             {
-                OnInputValueChanged();
+                //OnInputValueChanged();
             }
         }
 
@@ -58,12 +60,11 @@ namespace Nodify.Calculator
 
         public bool IsReadOnly { get; set; }
 
-        private IOperation? _operation;
-        public IOperation? Operation
+        private ICommandAction? _operation;
+        public ICommandAction? Operation
         {
             get => _operation;
-            set => SetProperty(ref _operation, value)
-                .Then(OnInputValueChanged);
+            set => SetProperty(ref _operation, value);
         }
 
         public NodifyObservableCollection<ConnectorViewModel> Input { get; } = new NodifyObservableCollection<ConnectorViewModel>();
@@ -81,20 +82,20 @@ namespace Nodify.Calculator
             }
         }
 
-        protected virtual void OnInputValueChanged()
-        {
-            if (Output != null && Operation != null)
-            {
-                try
-                {
-                    var input = Input.Select(i => i.Value).ToArray();
-                    Output.Value = Operation?.Execute(input) ?? 0;
-                }
-                catch
-                {
+        //protected virtual void OnInputValueChanged()
+        //{
+        //    if (Output != null && Operation != null)
+        //    {
+        //        try
+        //        {
+        //            var input = Input.Select(i => i.Value).ToArray();
+        //            Output.Value = Operation?.Execute(input) ?? 0;
+        //        }
+        //        catch
+        //        {
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
     }
 }

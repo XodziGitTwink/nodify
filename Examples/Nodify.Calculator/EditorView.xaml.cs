@@ -1,15 +1,19 @@
-﻿using System.Windows;
+﻿using SkyUtils;
+using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace Nodify.Calculator
 {
-    public partial class EditorView : UserControl
+    public partial class EditorView : Window
     {
-        public EditorView()
+        EditorViewModel viewModel;
+        public EditorView(List<Command>? commands = null)
         {
             InitializeComponent();
-
+            this.viewModel = new EditorViewModel(commands);
+            this.DataContext = viewModel;
             EventManager.RegisterClassHandler(typeof(NodifyEditor), MouseLeftButtonDownEvent, new MouseButtonEventHandler(CloseOperationsMenu), true);
             EventManager.RegisterClassHandler(typeof(NodifyEditor), MouseRightButtonUpEvent, new MouseButtonEventHandler(OpenOperationsMenu));
         }
@@ -54,6 +58,12 @@ namespace Nodify.Calculator
                 var data = new DataObject(typeof(OperationInfoViewModel), operation);
                 DragDrop.DoDragDrop(this, data, DragDropEffects.Copy);
             }
+        }
+
+        private void Save_Button_Click(object sender, RoutedEventArgs e)
+        {
+            var test = this.viewModel.Calculator.Operations;
+            var stop = 5;
         }
     }
 }
