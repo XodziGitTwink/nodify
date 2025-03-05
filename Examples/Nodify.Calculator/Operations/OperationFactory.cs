@@ -107,20 +107,23 @@ namespace Nodify.Calculator
                     return new ScreenShotCommandViewModel
                     {
                         Title = info.Title,
-                        Operation = info.Operation 
+                        Operation = info.Operation,
+                        CommandType = CommandType.ScreenShot,
                     };
                 case CommandType.HideWindow:
                     return new HideWindiwViewModel
                     {
                         Title = info.Title,
-                        Operation = info.Operation
+                        Operation = info.Operation,
+                        CommandType= CommandType.HideWindow,
                     };
                 case CommandType.OpenApp:
                     return new OpenAppCommandViewModel
                     {
                         Title = info.Title,
                         Operation = info.Operation,
-                        Description = info.Description 
+                        Description = info.Description ,
+                        CommandType = CommandType.OpenApp,
                     };
             }
 

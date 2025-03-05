@@ -44,6 +44,8 @@ namespace Nodify.Calculator
             set => SetProperty(ref _size, value);
         }
 
+        public CommandType CommandType { get; set; }
+
         private string? _title;
         public string? Title
         {
@@ -66,6 +68,8 @@ namespace Nodify.Calculator
             get => _operation;
             set => SetProperty(ref _operation, value);
         }
+
+        public string Parametr {  get; set; }
 
         public NodifyObservableCollection<ConnectorViewModel> Input { get; } = new NodifyObservableCollection<ConnectorViewModel>();
 

@@ -20,4 +20,8 @@
     <ProjectReference Include="..\Nodify.Shared\Nodify.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dialogs\" />
+  </ItemGroup>
+
 </Project>
