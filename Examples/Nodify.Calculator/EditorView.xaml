@@ -8,7 +8,6 @@
              xmlns:nodify="https://miroiu.github.io/nodify"
              xmlns:shared="clr-namespace:Nodify;assembly=Nodify.Shared"
              xmlns:sys="clr-namespace:System;assembly=System.Runtime"
-             d:DataContext="{d:DesignInstance Type=local:EditorViewModel}"
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800">
@@ -470,6 +469,6 @@
                 </ScrollViewer>
             </Border>
         </Border>
-        <Button Background="#373c44" Foreground="White" x:Name="Save_Button" Content="Сохранить" HorizontalAlignment="Right" Margin="0,402,722,0" Width="68" Click="Save_Button_Click" Height="22" VerticalAlignment="Top"/>
+        <Button Background="#373c44" Foreground="White" x:Name="Save_Button" Content="Сохранить" Margin="10,0,0,25" Click="Save_Button_Click" HorizontalAlignment="Left" Width="98" Height="34" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>
