@@ -21,7 +21,6 @@ namespace Nodify.Calculator
                 x.PropertyChanged -= OnInputValueChanged;
             });
         }
-
         private void OnInputValueChanged(object? sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(ConnectorViewModel.Value))
@@ -69,7 +68,20 @@ namespace Nodify.Calculator
             set => SetProperty(ref _operation, value);
         }
 
-        public string Parametr {  get; set; }
+        private string _parametr;
+
+        public virtual string Parametr
+        {
+            get => _parametr;
+            set
+            {
+                if (_parametr != value)
+                {
+                    _parametr = value;
+                    OnPropertyChanged(nameof(Parametr));
+                }
+            }
+        }
 
         public NodifyObservableCollection<ConnectorViewModel> Input { get; } = new NodifyObservableCollection<ConnectorViewModel>();
 

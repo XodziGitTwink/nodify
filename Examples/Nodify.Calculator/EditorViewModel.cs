@@ -37,5 +37,25 @@ namespace Nodify.Calculator
             get => _name;
             set => SetProperty(ref _name, value);
         }
+
+        private string? _scenarionName;
+        public string? ScenarioName
+        {
+            get => _scenarionName;
+            set => SetProperty(ref _scenarionName, value);
+        }
+
+        private string? _scenarioDesc;
+        public string? ScenarioDesc
+        {
+            get => _scenarioDesc;
+            set => SetProperty(ref _scenarioDesc, value);
+        }
+        private string? _scenarioPhrase;
+        public string? ScenarioPhrase
+        {
+            get => _scenarioPhrase;
+            set => SetProperty(ref _scenarioPhrase, value);
+        }
     }
 }

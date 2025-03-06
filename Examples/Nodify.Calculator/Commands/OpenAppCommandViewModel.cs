@@ -22,6 +22,21 @@ namespace Nodify.Calculator.Commands
                 OnPropertyChanged(nameof(SelectedProgram));
             }
         }
+        public override string Parametr
+        {
+            get => _selectedProgram?.ExecutablePath;
+            set
+            {
+                if (_selectedProgram == null)
+                {
+                    _selectedProgram = new InstalledProgram(); // Инициализация, если программа еще не выбрана
+                }
+                // Если нужно, присваиваем новый ExecutablePath
+                _selectedProgram.ExecutablePath = value;
+                OnPropertyChanged(nameof(Parametr)); // Вызываем обновление UI
+            }
+        }
+
         public OpenAppCommandViewModel() {
             Output = new ConnectorViewModel();
             Input.Add(new ConnectorViewModel());

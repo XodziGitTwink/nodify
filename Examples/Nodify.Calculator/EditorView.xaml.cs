@@ -20,6 +20,7 @@ namespace Nodify.Calculator
             InitializeComponent();
             this.viewModel = new EditorViewModel(commands);
             this.DataContext = viewModel;
+            
             EventManager.RegisterClassHandler(typeof(NodifyEditor), MouseLeftButtonDownEvent, new MouseButtonEventHandler(CloseOperationsMenu), true);
             EventManager.RegisterClassHandler(typeof(NodifyEditor), MouseRightButtonUpEvent, new MouseButtonEventHandler(OpenOperationsMenu));
         }
@@ -69,7 +70,7 @@ namespace Nodify.Calculator
         private void Save_Button_Click(object sender, RoutedEventArgs e)
         {
             var operations = this.viewModel.Calculator.Operations.ToList();
-            CommandsUpdated?.Invoke(operations,"Сцериай","Тест");
+            CommandsUpdated?.Invoke(operations,viewModel.ScenarioName,viewModel.ScenarioName);
             var stop = 5;
         }
     }

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Nodify.Calculator"
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
              xmlns:commands="clr-namespace:Nodify.Calculator.Commands"
              xmlns:nodify="https://miroiu.github.io/nodify"
              xmlns:shared="clr-namespace:Nodify;assembly=Nodify.Shared"
@@ -125,7 +126,38 @@
     </Window.Resources>
 
     <Grid>
+        <Expander Header="Настройки"
+              IsExpanded="True"
+              Margin="10"
+              HorizontalAlignment="Left"
+              Panel.ZIndex="3"
+              VerticalAlignment="Bottom">
+            <Border MaxWidth="200"
+MaxHeight="300"
+CornerRadius="3">
+                <Border.Background>
+                    <SolidColorBrush Color="{DynamicResource BackgroundColor}"
+                 Opacity="0.7" />
+                </Border.Background>
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+                    <StackPanel Margin="10"
+            IsHitTestVisible="True">
+                        <StackPanel.Resources>
+                        </StackPanel.Resources>
 
+                        <StackPanel Margin="0 0 0 0">
+                            <ui:TextBox Margin="5, 5, 5, 0" x:Name="textBoxName" TextWrapping="Wrap" Text="{Binding ScenarioName}" PlaceholderEnabled="True" PlaceholderText="Имя" Width="170"/>
+                            <ui:TextBox Margin="5, 5, 5, 0" x:Name="textBoxDesc" TextWrapping="Wrap" Text="{Binding ScenarioDesc}" PlaceholderEnabled="True" PlaceholderText="Описание" Width="170"/>
+                            <ui:TextBox Margin="5, 5, 5, 0" x:Name="textBoxPhrase" TextWrapping="Wrap" Text="{Binding ScenarioPhrase}" PlaceholderEnabled="True" PlaceholderText="Фраза" Width="170"/>
+                            <ui:Button Background="#373c44" Foreground="White" x:Name="Save_Button" Content="Сохранить" 
+                Margin="5,5,0,5" Click="Save_Button_Click" HorizontalAlignment="Left" Width="98" Height="34" VerticalAlignment="Bottom"/>
+
+                        </StackPanel>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </Expander>
         <nodify:NodifyEditor DataContext="{Binding Calculator}"
                              ItemsSource="{Binding Operations}"
                              Connections="{Binding Connections}"
@@ -308,7 +340,7 @@
                  Input="{Binding Input}"
                  Output="{Binding Output, Converter={StaticResource ItemToListConverter}}">
                         <nodify:Node.ContentTemplate>
-                            <DataTemplate DataType="{x:Type local:ExpressionOperationViewModel}">
+                            <DataTemplate DataType="{x:Type commands:OpenAppCommandViewModel}">
                                 <StackPanel>
                                     <!--<TextBox Text="{Binding Description}"
                                      MinWidth="100"
@@ -422,6 +454,10 @@
         <Grid Background="{StaticResource LargeGridLinesDrawingBrush}"
               Panel.ZIndex="-2" />
 
+        
+
+
+
         <Border BorderBrush="Black"
         BorderThickness="3"
         Padding="2">
@@ -467,8 +503,8 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </ScrollViewer>
+                
             </Border>
         </Border>
-        <Button Background="#373c44" Foreground="White" x:Name="Save_Button" Content="Сохранить" Margin="10,0,0,25" Click="Save_Button_Click" HorizontalAlignment="Left" Width="98" Height="34" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

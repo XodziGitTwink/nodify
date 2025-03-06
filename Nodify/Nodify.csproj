@@ -18,11 +18,11 @@
     <PackageTags>wpf mvvm node network node-editor graph controls</PackageTags>
     <Version>7.0.1</Version>
     <PackageReleaseNotes>
-      > - Bugfixes:
-      >	  - Fixed an issue where connections would not gain focus when selected, which could prevent editor keybindings from functioning in certain scenarios
-      >	  - Resolved an issue where selecting a node did not deselect connections and vice versa
-      >	  - Fixed a bug preventing ItemContainers from being selected when the mouse could not be captured
-      >	  - Fixed an issue with key detection in Japanese IME environments, causing issues with the MouseGesture
+      &gt; - Bugfixes:
+      &gt;	  - Fixed an issue where connections would not gain focus when selected, which could prevent editor keybindings from functioning in certain scenarios
+      &gt;	  - Resolved an issue where selecting a node did not deselect connections and vice versa
+      &gt;	  - Fixed a bug preventing ItemContainers from being selected when the mouse could not be captured
+      &gt;	  - Fixed an issue with key detection in Japanese IME environments, causing issues with the MouseGesture
     </PackageReleaseNotes>
     <AssemblyOriginatorKeyFile>..\build\Nodify.snk</AssemblyOriginatorKeyFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -44,6 +44,9 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="WPF-UI" Version="4.0.0" />
   </ItemGroup>
 
 </Project>

@@ -10,6 +10,9 @@
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="WPF-UI" Version="4.0.0" />
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="Themes\Controls.xaml">
       <SubType>Designer</SubType>
     </Page>
