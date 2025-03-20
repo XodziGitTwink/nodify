@@ -20,6 +20,8 @@ namespace Nodify.Calculator
         OpenSite,
         OpenApp,
         ScreenShot,
+        DrawSquare,
+        DrawCircle
     }
 
     public class OperationInfoViewModel

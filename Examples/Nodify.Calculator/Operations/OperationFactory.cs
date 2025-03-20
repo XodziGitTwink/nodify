@@ -125,6 +125,13 @@ namespace Nodify.Calculator
                         Description = info.Description ,
                         CommandType = CommandType.OpenApp,
                     };
+                case CommandType.MouseMove:
+                    return new MouseMoveViewModel
+                    {
+                        Title = info.Title,
+                        Operation = info.Operation,
+                        CommandType = CommandType.MouseMove
+                    };
             }
 
             switch (info.Type)

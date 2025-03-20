@@ -367,6 +367,42 @@ CornerRadius="3">
                     </nodify:Node>
                 </DataTemplate>
 
+                <DataTemplate DataType="{x:Type commands:DrawSquareViewModel}">
+                    <nodify:Node Content="{Binding}"
+                         Input="{Binding Input}"
+                         Output="{Binding Output, Converter={StaticResource ItemToListConverter}}">
+                        <nodify:Node.ContentTemplate>
+                            <DataTemplate DataType="{x:Type commands:DrawSquareViewModel}">
+                                <StackPanel>
+                                    <TextBox Text="{Binding Diameter}"
+                                         MinWidth="100"
+                                         Margin="5 0 0 0" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </nodify:Node.ContentTemplate>
+                    </nodify:Node>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type commands:MouseMoveViewModel}">
+                    <nodify:Node Content="{Binding}"
+         Input="{Binding Input}"
+         Output="{Binding Output, Converter={StaticResource ItemToListConverter}}">
+                        <nodify:Node.ContentTemplate>
+                            <DataTemplate DataType="{x:Type commands:MouseMoveViewModel}">
+                                <StackPanel>
+                                    <TextBox Text="{Binding X}"
+                                         MinWidth="100"
+                                         Margin="5 0 0 0" />
+                                    <TextBox Text="{Binding Y}"
+                                        MinWidth="100"
+                                        Margin="5 0 0 0" />
+                                    <CheckBox IsChecked="{Binding Click}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </nodify:Node.ContentTemplate>
+                    </nodify:Node>
+                </DataTemplate>
+
                 <DataTemplate DataType="{x:Type local:CalculatorOperationViewModel}">
                     <nodify:Node Header="{Binding Title}"
                                  Input="{Binding Input}"

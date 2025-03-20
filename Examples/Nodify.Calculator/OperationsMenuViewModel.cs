@@ -81,6 +81,18 @@ namespace Nodify.Calculator
                     Title = "Открыть",
                     Description = "Тут нужный exe"
                 },
+                new OperationInfoViewModel
+                {
+                    CommandType = CommandType.DrawSquare,
+                    MaxInput = 1,
+                    Title = "Нарисовать квадрат",
+                },
+                new OperationInfoViewModel
+                {
+                    CommandType = CommandType.MouseMove,
+                    MaxInput = 1,
+                    Title = "Мышь"
+                }
             };
             }
             else
