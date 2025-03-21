@@ -132,6 +132,13 @@ namespace Nodify.Calculator
                         Operation = info.Operation,
                         CommandType = CommandType.MouseMove
                     };
+                case CommandType.DrawCircle:
+                    return new DrawCircleViewModel
+                    {
+                        Title = info.Title,
+                        Operation = info.Operation,
+                        CommandType = CommandType.DrawCircle,
+                    };
             }
 
             switch (info.Type)

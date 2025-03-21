@@ -367,21 +367,23 @@ CornerRadius="3">
                     </nodify:Node>
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type commands:DrawSquareViewModel}">
+                <DataTemplate DataType="{x:Type commands:DrawCircleViewModel}">
                     <nodify:Node Content="{Binding}"
-                         Input="{Binding Input}"
-                         Output="{Binding Output, Converter={StaticResource ItemToListConverter}}">
+Input="{Binding Input}"
+Output="{Binding Output, Converter={StaticResource ItemToListConverter}}">
                         <nodify:Node.ContentTemplate>
-                            <DataTemplate DataType="{x:Type commands:DrawSquareViewModel}">
+                            <DataTemplate DataType="{x:Type commands:DrawCircleViewModel}">
                                 <StackPanel>
-                                    <TextBox Text="{Binding Diameter}"
-                                         MinWidth="100"
-                                         Margin="5 0 0 0" />
+                                    <TextBox Text="{Binding Radius}"
+                                MinWidth="100"
+                                Margin="5 0 0 0" />
                                 </StackPanel>
                             </DataTemplate>
                         </nodify:Node.ContentTemplate>
                     </nodify:Node>
                 </DataTemplate>
+
+
 
                 <DataTemplate DataType="{x:Type commands:MouseMoveViewModel}">
                     <nodify:Node Content="{Binding}"

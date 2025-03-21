@@ -55,12 +55,12 @@ namespace Nodify.Calculator
             {
                 operations = new List<OperationInfoViewModel>
             {
-                new OperationInfoViewModel
-                {
-                    Type = OperationType.Expando,
-                    MaxInput = 2,
-                    Title = "Команда",
-                },
+                //new OperationInfoViewModel
+                //{
+                //    Type = OperationType.Expando,
+                //    MaxInput = 2,
+                //    Title = "Команда",
+                //},
                 new OperationInfoViewModel
                 {
                     CommandType = CommandType.ScreenShot,
@@ -83,9 +83,9 @@ namespace Nodify.Calculator
                 },
                 new OperationInfoViewModel
                 {
-                    CommandType = CommandType.DrawSquare,
+                    CommandType = CommandType.DrawCircle,
                     MaxInput = 1,
-                    Title = "Нарисовать квадрат",
+                    Title = "Круг",
                 },
                 new OperationInfoViewModel
                 {
