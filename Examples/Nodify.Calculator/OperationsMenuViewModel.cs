@@ -66,7 +66,6 @@ namespace Nodify.Calculator
                     CommandType = CommandType.ScreenShot,
                     MaxInput = 2,
                     Title = "Скриншот",
-                    //Operation = new ScrennShotCommand(),
                 },
                 new OperationInfoViewModel
                 {
@@ -92,6 +91,18 @@ namespace Nodify.Calculator
                     CommandType = CommandType.MouseMove,
                     MaxInput = 1,
                     Title = "Мышь"
+                },
+                new OperationInfoViewModel
+                {
+                    CommandType = CommandType.DrawSquare,
+                    MaxInput = 1,
+                    Title = "Квадрат"
+                },
+                new OperationInfoViewModel
+                { 
+                    CommandType = CommandType.OpenSite,
+                    MaxInput = 1,
+                    Title = "Открыть сайт",
                 }
             };
             }

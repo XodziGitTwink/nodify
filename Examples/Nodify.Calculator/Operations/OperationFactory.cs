@@ -1,4 +1,5 @@
 ﻿using Nodify.Calculator.Commands;
+using SkyUtils;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
@@ -138,6 +139,20 @@ namespace Nodify.Calculator
                         Title = info.Title,
                         Operation = info.Operation,
                         CommandType = CommandType.DrawCircle,
+                    };
+                case CommandType.OpenSite:
+                    return new OpenSiteViewModel
+                    {
+                        Title = info.Title,
+                        Operation = info.Operation,
+                        CommandType = CommandType.OpenSite,
+                    };
+                case CommandType.DrawSquare:
+                    return new DrawSquareViewModel
+                    {
+                        Title = info.Title,
+                        Operation = info.Operation,
+                        CommandType = CommandType.DrawSquare,
                     };
             }
 

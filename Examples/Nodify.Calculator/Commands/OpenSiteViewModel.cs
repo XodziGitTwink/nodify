@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Nodify.Calculator.Commands
 {
-    public class DrawSquareViewModel : OperationViewModel
+    public class OpenSiteViewModel : OperationViewModel
     {
-        public int SideLength {  get; set; }
-
-        public DrawSquareViewModel() {
+        public string Url { get; set; }
+        public OpenSiteViewModel()
+        {
             Output = new ConnectorViewModel();
             Input.Add(new ConnectorViewModel());
         }

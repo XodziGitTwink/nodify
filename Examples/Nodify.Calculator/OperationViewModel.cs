@@ -43,7 +43,7 @@ namespace Nodify.Calculator
             set => SetProperty(ref _size, value);
         }
 
-        public CommandType CommandType { get; set; }
+        public SkyUtils.CommandType CommandType { get; set; }
 
         private string? _title;
         public string? Title

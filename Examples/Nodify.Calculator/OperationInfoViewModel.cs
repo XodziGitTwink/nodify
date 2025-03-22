@@ -12,17 +12,6 @@ namespace Nodify.Calculator
         Group,
         Graph,
     }
-    public enum CommandType
-    {
-        ButtonPress,
-        HideWindow,
-        MouseMove,
-        OpenSite,
-        OpenApp,
-        ScreenShot,
-        DrawSquare,
-        DrawCircle
-    }
 
     public class OperationInfoViewModel
     {

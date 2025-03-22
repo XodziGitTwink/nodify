@@ -369,12 +369,49 @@ CornerRadius="3">
 
                 <DataTemplate DataType="{x:Type commands:DrawCircleViewModel}">
                     <nodify:Node Content="{Binding}"
-Input="{Binding Input}"
-Output="{Binding Output, Converter={StaticResource ItemToListConverter}}">
+                            Input="{Binding Input}"
+                            Output="{Binding Output, Converter={StaticResource ItemToListConverter}}">
                         <nodify:Node.ContentTemplate>
                             <DataTemplate DataType="{x:Type commands:DrawCircleViewModel}">
                                 <StackPanel>
+                                    <TextBlock Text="Круг" 
+                                    FontWeight="Bold" Margin="5 0 0 0" />
                                     <TextBox Text="{Binding Radius}"
+                                MinWidth="100"
+                                Margin="5 0 0 0" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </nodify:Node.ContentTemplate>
+                    </nodify:Node>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type commands:DrawSquareViewModel}">
+                    <nodify:Node Content="{Binding}"
+            Input="{Binding Input}"
+            Output="{Binding Output, Converter={StaticResource ItemToListConverter}}">
+                        <nodify:Node.ContentTemplate>
+                            <DataTemplate DataType="{x:Type commands:DrawSquareViewModel}">
+                                <StackPanel>
+                                    <TextBlock Text="Квадрат" 
+                    FontWeight="Bold" Margin="5 0 0 0" />
+                                    <TextBox Text="{Binding SideLength}"
+                MinWidth="100"
+                Margin="5 0 0 0" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </nodify:Node.ContentTemplate>
+                    </nodify:Node>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type commands:OpenSiteViewModel}">
+                    <nodify:Node Content="{Binding}"
+                        Input="{Binding Input}"
+                        Output="{Binding Output, Converter={StaticResource ItemToListConverter}}">
+                        <nodify:Node.ContentTemplate>
+                            <DataTemplate DataType="{x:Type commands:OpenSiteViewModel}">
+                                <StackPanel>
+                                    
+                                    <TextBox Text="{Binding Url}"
                                 MinWidth="100"
                                 Margin="5 0 0 0" />
                                 </StackPanel>
@@ -387,18 +424,35 @@ Output="{Binding Output, Converter={StaticResource ItemToListConverter}}">
 
                 <DataTemplate DataType="{x:Type commands:MouseMoveViewModel}">
                     <nodify:Node Content="{Binding}"
-         Input="{Binding Input}"
-         Output="{Binding Output, Converter={StaticResource ItemToListConverter}}">
+                 Input="{Binding Input}"
+                 Output="{Binding Output, Converter={StaticResource ItemToListConverter}}">
                         <nodify:Node.ContentTemplate>
                             <DataTemplate DataType="{x:Type commands:MouseMoveViewModel}">
                                 <StackPanel>
-                                    <TextBox Text="{Binding X}"
-                                         MinWidth="100"
-                                         Margin="5 0 0 0" />
-                                    <TextBox Text="{Binding Y}"
-                                        MinWidth="100"
-                                        Margin="5 0 0 0" />
-                                    <CheckBox IsChecked="{Binding Click}" />
+                                    <!-- Шапка -->
+                                    <TextBlock Text="Передвижение мыши" 
+                               FontWeight="Bold" 
+                               Margin="5 0 0 0" />
+
+                                    <!-- Подпись для X -->
+                                    <TextBlock Text="X:" 
+                               Margin="5 5 0 0" />
+                                    <TextBox Text="{Binding X}" 
+                             MinWidth="100" 
+                             Margin="5 0 0 0" />
+
+                                    <!-- Подпись для Y -->
+                                    <TextBlock Text="Y:" 
+                               Margin="5 5 0 0" />
+                                    <TextBox Text="{Binding Y}" 
+                             MinWidth="100" 
+                             Margin="5 0 0 0" />
+
+                                    <!-- Подпись для CheckBox -->
+                                    <StackPanel Orientation="Horizontal" Margin="5 5 0 0">
+                                        <TextBlock Text="Click:" VerticalAlignment="Center" />
+                                        <CheckBox IsChecked="{Binding Click}" Margin="5 0 0 0" VerticalAlignment="Center" />
+                                    </StackPanel>
                                 </StackPanel>
                             </DataTemplate>
                         </nodify:Node.ContentTemplate>
